@@ -1,0 +1,11 @@
+{
+  "type": "tbworld:tbworld",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "tbworld:tbns",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "tbworld:tbmain"
+    }
+  }
+}
