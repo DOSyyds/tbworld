@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 public class ThreeBodyCitizenRenderer extends MobRenderer<ThreeBodyCitizen, ThreeBodyCitizenModel<ThreeBodyCitizen>> {
 
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(tbworld.MODID,
-            "textures/entity/tbCitizenTexture.png");
+            "textures/entity/tbcitizentexture.png");
 
     public ThreeBodyCitizenRenderer(EntityRendererProvider.Context context) {
         super(context, new ThreeBodyCitizenModel<>(context.bakeLayer(ThreeBodyCitizenModel.LAYER_LOCATION)), 0.5f);
