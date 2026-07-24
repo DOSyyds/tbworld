@@ -34,9 +34,9 @@ public class ThreeBodyCitizen extends Monster {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 45.0)
+                .add(Attributes.MAX_HEALTH, 20.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.4)
-                .add(Attributes.ATTACK_DAMAGE, 8.0)
+                .add(Attributes.ATTACK_DAMAGE, 5.0)
                 .add(Attributes.FOLLOW_RANGE, 32.0)
                 .add(Attributes.ARMOR, 2.0);
     }

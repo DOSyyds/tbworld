@@ -16,10 +16,10 @@ public class tbModEntities {
     public static final Supplier<EntityType<ThreeBodyCitizen>> THREE_BODY_CITIZEN = ENTITIES.register(
             "three_body_citizen",
             () -> EntityType.Builder.of(ThreeBodyCitizen::new, MobCategory.MONSTER)
-                    .sized(0.6F, 2.9F)
-                    .eyeHeight(2.55F)
+                    .sized(0.6F, 1.55F)
+                    .eyeHeight(1.5F)
                     .passengerAttachments(2.80625F)
-                    .clientTrackingRange(8)
+                    .clientTrackingRange(32)
                     .build("three_body_citizen"));
 
 }
