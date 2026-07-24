@@ -21,7 +21,7 @@
     "misc": [],
     "monster": [
       {
-        "type": "minecraft:enderman",
+        "type": "tbworld:three_body_citizen",
         "maxCount": 10,
         "minCount": 4,
         "weight": 10
