@@ -16,12 +16,12 @@ public class tbCitizen<T extends Entity> extends EntityModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(0, 25).addBox(-2.0F, -12.0F, 2.0F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(4, 25).addBox(-2.0F, -12.0F, -3.0F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 0).addBox(-4.0F, -21.0F, -4.0F, 5.0F, 9.0F, 8.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 17).addBox(-2.0F, -24.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(16, 17).addBox(-2.0F, -1.0F, -4.0F, 4.0F, 1.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(16, 21).addBox(-2.0F, -1.0F, 1.0F, 4.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(0, 25).addBox(1.0F, -12.0F, -2.0F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(4, 25).addBox(-4.0F, -12.0F, -2.0F, 1.0F, 11.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 3).addBox(-5.0F, -21.0F, -4.0F, 8.0F, 9.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 17).addBox(-3.0F, -24.0F, -5.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
+		.texOffs(16, 17).addBox(-5.0F, -1.0F, -4.0F, 3.0F, 1.0F, 4.0F, new CubeDeformation(0.0F))
+		.texOffs(16, 22).addBox(0.0F, -1.0F, -4.0F, 3.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
