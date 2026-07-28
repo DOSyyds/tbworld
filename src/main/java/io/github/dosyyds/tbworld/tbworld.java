@@ -19,6 +19,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import io.github.dosyyds.tbworld.entity.ThreeBodyCitizen;
 import io.github.dosyyds.tbworld.entity.tbModEntities;
 import io.github.dosyyds.tbworld.item.*;
+import io.github.dosyyds.tbworld.block.*;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(tbworld.MODID)
@@ -33,6 +34,7 @@ public class tbworld {
         modEventBus.addListener(this::commonSetup);
 
         tbModItems.register(modEventBus);
+        tbModBlocks.register(modEventBus);
         createModeTags.register(modEventBus);
 
         tbModEntities.ENTITIES.register(modEventBus);
