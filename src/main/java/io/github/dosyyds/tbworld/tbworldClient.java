@@ -36,7 +36,7 @@ public class tbworldClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            event.registerEntityRenderer(tbModEntities.TBCITIZEN.get(), ThreeBodyCitizenRenderer::new);
+            EntityRenderers.register(tbModEntities.TBCITIZEN.get(), ThreeBodyCitizenRenderer::new);
         });
     }
 

@@ -2,6 +2,7 @@ package io.github.dosyyds.tbworld.entity;
 
 import java.util.function.Predicate;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,7 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ThreeBodyCitizen extends Monster {
-    private int variantType = 0;    
+    private int variantType = 0;
 
     // 攻击目标筛选器：只攻击没有持剑的玩家
     private static final Predicate<LivingEntity> ATTACK_PREDICATE = target -> {

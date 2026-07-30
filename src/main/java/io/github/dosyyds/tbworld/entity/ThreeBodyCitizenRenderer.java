@@ -15,11 +15,13 @@ public class ThreeBodyCitizenRenderer extends MobRenderer<ThreeBodyCitizen, Thre
     @Override
     public ResourceLocation getTextureLocation(ThreeBodyCitizen entity) {
         int variant = entity.getVariantType(); // 通过 getter 获取
-        String textureName;
+        System.out.println(variant);
+        String textureName = "textures/entity/tbcitizentexture_a.png";
         switch (variant) {
-            case 0 -> textureName = "textures/entity/variant_a.png";
-            case 1 -> textureName = "textures/entity/variant_b.png";
+            case 0 -> textureName = "textures/entity/tbcitizentexture_a.png";
+            case 1 -> textureName = "textures/entity/tbcitizentexture_b.png";
+            default -> System.err.println("Nuull");
         }
-        return new ResourceLocation.fromNamespaceandPath(Tbworld.MOD_ID, textureName);
+        return ResourceLocation.fromNamespaceAndPath(tbworld.MODID, textureName);
     }
 }
