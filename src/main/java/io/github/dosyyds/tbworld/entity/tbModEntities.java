@@ -13,13 +13,11 @@ public class tbModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE,
             tbworld.MODID);
 
-    public static final Supplier<EntityType<ThreeBodyCitizen>> THREE_BODY_CITIZEN = ENTITIES.register(
-            "three_body_citizen",
-            () -> EntityType.Builder.of(ThreeBodyCitizen::new, MobCategory.MONSTER)
-                    .sized(0.6F, 1.55F)
-                    .eyeHeight(1.5F)
-                    .passengerAttachments(2.80625F)
-                    .clientTrackingRange(32)
-                    .build("three_body_citizen"));
+    public static final Supplier<EntityType<MyVariantEntity>> TBCITIZEN =
+        ENTITY_TYPES.register("tbcitizen",
+                () -> EntityType.Builder.of(MyVariantEntity::new, MobCategory.CREATURE)
+                        .sized(0.6F, 1.8F) // 设置碰撞箱大小
+                        .build("tbcitizen") // build 方法需要传入注册名
+        );
 
 }

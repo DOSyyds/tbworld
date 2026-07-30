@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ThreeBodyCitizen extends Monster {
+    private int variantType = 0;    
 
     // 攻击目标筛选器：只攻击没有持剑的玩家
     private static final Predicate<LivingEntity> ATTACK_PREDICATE = target -> {
@@ -26,6 +27,26 @@ public class ThreeBodyCitizen extends Monster {
         // 非玩家实体（如其他怪物）不攻击，可根据需要修改
         return false;
     };
+
+    public int getVariantType() {
+        return variantType;
+    }
+
+    public void setVariantType(int variantType) {
+        this.variantType = variantType;
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putInt("Variant", this.variantType); // 将变种存入 NBT
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.variantType = compound.getInt("Variant"); // 从 NBT 读取
+    }
 
     public ThreeBodyCitizen(EntityType<? extends ThreeBodyCitizen> entityType, Level level) {
         super(entityType, level);
