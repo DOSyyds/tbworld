@@ -42,6 +42,6 @@ public class tbworldClient {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ThreeBodyCitizenModel.LAYER_LOCATION, ThreeBodyCitizenModel::createBodyLayer);
+        event.registerLayerDefinition(ThreeBodyCitizenModel.LAYERLOC, ThreeBodyCitizenModel::createBodyLayer);
     }
 }

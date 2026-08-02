@@ -9,13 +9,13 @@ import net.minecraft.resources.ResourceLocation;
 public class ThreeBodyCitizenRenderer extends MobRenderer<ThreeBodyCitizen, ThreeBodyCitizenModel<ThreeBodyCitizen>> {
 
     public ThreeBodyCitizenRenderer(EntityRendererProvider.Context context) {
-        super(context, new ThreeBodyCitizenModel<>(context.bakeLayer(ThreeBodyCitizenModel.LAYER_LOCATION)), 0.5f);
+        super(context, new ThreeBodyCitizenModel<>(context.bakeLayer(ThreeBodyCitizenModel.LAYERLOC)), 0.5f);
     }
 
     @Override
     public ResourceLocation getTextureLocation(ThreeBodyCitizen entity) {
-        int variant = entity.getVariantType(); // 通过 getter 获取
-        System.out.println(variant);
+        int variant = entity.getVariant(); // 通过 getter 获取
+        // System.out.println(variant);
         String textureName = "textures/entity/tbcitizentexture_a.png";
         switch (variant) {
             case 0 -> textureName = "textures/entity/tbcitizentexture_a.png";

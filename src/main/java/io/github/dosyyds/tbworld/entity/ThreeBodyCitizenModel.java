@@ -14,8 +14,8 @@ import net.minecraft.world.entity.Entity;
 
 public class ThreeBodyCitizenModel<T extends Entity> extends EntityModel<T> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-            ResourceLocation.fromNamespaceAndPath("tbworld", "three_body_citizen"), "main");
+    public static final ModelLayerLocation LAYERLOC = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath("tbworld", "tbcitizen"), "main");
 
     private final ModelPart head;
     private final ModelPart body;

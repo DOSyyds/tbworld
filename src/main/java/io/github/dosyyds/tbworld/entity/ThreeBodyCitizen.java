@@ -3,6 +3,9 @@ package io.github.dosyyds.tbworld.entity;
 import java.util.function.Predicate;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,7 +19,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ThreeBodyCitizen extends Monster {
-    private int variantType = 0;
+    private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(ThreeBodyCitizen.class,
+            EntityDataSerializers.INT);
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_VARIANT, 0); // 默认值为 0
+    }
 
     // 攻击目标筛选器：只攻击没有持剑的玩家
     private static final Predicate<LivingEntity> ATTACK_PREDICATE = target -> {
@@ -29,24 +39,24 @@ public class ThreeBodyCitizen extends Monster {
         return false;
     };
 
-    public int getVariantType() {
-        return variantType;
+    public int getVariant() {
+        return this.entityData.get(DATA_VARIANT);
     }
 
-    public void setVariantType(int variantType) {
-        this.variantType = variantType;
+    public void setVariant(int variant) {
+        this.entityData.set(DATA_VARIANT, variant);
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        compound.putInt("Variant", this.variantType); // 将变种存入 NBT
+        compound.putInt("Variant", this.getVariant()); // 从同步数据中读取
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        this.variantType = compound.getInt("Variant"); // 从 NBT 读取
+        this.setVariant(compound.getInt("Variant")); // 写入同步数据
     }
 
     public ThreeBodyCitizen(EntityType<? extends ThreeBodyCitizen> entityType, Level level) {
