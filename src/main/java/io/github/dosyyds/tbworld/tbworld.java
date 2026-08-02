@@ -67,6 +67,6 @@ public class tbworld {
     }
 
     private void registerMobAttr(EntityAttributeCreationEvent event) {
-        event.put(tbModEntities.THREE_BODY_CITIZEN.get(), ThreeBodyCitizen.createAttributes().build());
+        event.put(tbModEntities.TBCITIZEN.get(), ThreeBodyCitizen.createAttributes().build());
     }
 }

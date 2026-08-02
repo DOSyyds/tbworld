@@ -8,15 +8,20 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ThreeBodyCitizenRenderer extends MobRenderer<ThreeBodyCitizen, ThreeBodyCitizenModel<ThreeBodyCitizen>> {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(tbworld.MODID,
-            "textures/entity/tbcitizentexture.png");
-
     public ThreeBodyCitizenRenderer(EntityRendererProvider.Context context) {
-        super(context, new ThreeBodyCitizenModel<>(context.bakeLayer(ThreeBodyCitizenModel.LAYER_LOCATION)), 0.5f);
+        super(context, new ThreeBodyCitizenModel<>(context.bakeLayer(ThreeBodyCitizenModel.LAYERLOC)), 0.5f);
     }
 
     @Override
     public ResourceLocation getTextureLocation(ThreeBodyCitizen entity) {
-        return TEXTURE;
+        int variant = entity.getVariant(); // 通过 getter 获取
+        // System.out.println(variant);
+        String textureName = "textures/entity/tbcitizentexture_a.png";
+        switch (variant) {
+            case 0 -> textureName = "textures/entity/tbcitizentexture_a.png";
+            case 1 -> textureName = "textures/entity/tbcitizentexture_b.png";
+            default -> System.err.println("Nuull");
+        }
+        return ResourceLocation.fromNamespaceAndPath(tbworld.MODID, textureName);
     }
 }

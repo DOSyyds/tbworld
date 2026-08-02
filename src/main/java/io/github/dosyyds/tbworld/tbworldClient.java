@@ -36,13 +36,12 @@ public class tbworldClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            EntityRenderers.register(tbModEntities.THREE_BODY_CITIZEN.get(),
-                    ThreeBodyCitizenRenderer::new);
+            EntityRenderers.register(tbModEntities.TBCITIZEN.get(), ThreeBodyCitizenRenderer::new);
         });
     }
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ThreeBodyCitizenModel.LAYER_LOCATION, ThreeBodyCitizenModel::createBodyLayer);
+        event.registerLayerDefinition(ThreeBodyCitizenModel.LAYERLOC, ThreeBodyCitizenModel::createBodyLayer);
     }
 }

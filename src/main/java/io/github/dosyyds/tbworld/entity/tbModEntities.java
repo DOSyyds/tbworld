@@ -13,8 +13,8 @@ public class tbModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE,
             tbworld.MODID);
 
-    public static final Supplier<EntityType<ThreeBodyCitizen>> THREE_BODY_CITIZEN = ENTITIES.register(
-            "three_body_citizen",
+    public static final Supplier<EntityType<ThreeBodyCitizen>> TBCITIZEN = ENTITIES.register(
+            "tbcitizen",
             () -> EntityType.Builder.of(ThreeBodyCitizen::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.55F)
                     .eyeHeight(1.5F)

@@ -2,6 +2,10 @@ package io.github.dosyyds.tbworld.entity;
 
 import java.util.function.Predicate;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,6 +19,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ThreeBodyCitizen extends Monster {
+    private static final EntityDataAccessor<Integer> DATA_VARIANT = SynchedEntityData.defineId(ThreeBodyCitizen.class,
+            EntityDataSerializers.INT);
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_VARIANT, 0); // 默认值为 0
+    }
 
     // 攻击目标筛选器：只攻击没有持剑的玩家
     private static final Predicate<LivingEntity> ATTACK_PREDICATE = target -> {
@@ -26,6 +38,26 @@ public class ThreeBodyCitizen extends Monster {
         // 非玩家实体（如其他怪物）不攻击，可根据需要修改
         return false;
     };
+
+    public int getVariant() {
+        return this.entityData.get(DATA_VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.entityData.set(DATA_VARIANT, variant);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putInt("Variant", this.getVariant()); // 从同步数据中读取
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.setVariant(compound.getInt("Variant")); // 写入同步数据
+    }
 
     public ThreeBodyCitizen(EntityType<? extends ThreeBodyCitizen> entityType, Level level) {
         super(entityType, level);
